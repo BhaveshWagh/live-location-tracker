@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./Pages/Login";
+import SignUp from "./Pages/SignUp";
+import PageNotFount from "./Pages/PageNotFount";
+import Geolocate from "./Pages/Geolocate";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="/logged/locate" element={<Geolocate />} />
+        <Route path="*" element={<PageNotFount />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
